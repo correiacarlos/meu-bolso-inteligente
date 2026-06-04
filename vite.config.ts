@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Build Netlify Functions output when deploying outside Lovable (e.g. Netlify via GitHub).
+  // Inside the Lovable sandbox, Nitro auto-targets Cloudflare regardless of this setting.
+  nitro: {
+    preset: "netlify",
+  },
 });
