@@ -561,12 +561,14 @@ function Index() {
           {daySummary.date && (() => {
             const data = month.days[dayKey(daySummary.date)];
             const by = incomesByMethod(data);
-            const total = dayIncomeTotal(data);
+            const income = dayIncomeTotal(data);
+            const expense = dayExpenseTotal(data, config.columns);
+            const dailyTotal = income - expense;
             return (
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between font-semibold border-b pb-2">
-                  <span>Total recebido</span>
-                  <span className="text-green-600">{BRL(total)}</span>
+                  <span>Receitas</span>
+                  <span className="text-green-600">{BRL(income)}</span>
                 </div>
                 {PAYMENT_METHODS.map((m) => (
                   <div key={m} className="flex justify-between">
@@ -580,6 +582,16 @@ function Index() {
                     <span>{BRL(by[m])}</span>
                   </div>
                 ))}
+                <div className="flex justify-between font-semibold border-t pt-2">
+                  <span>Gastos</span>
+                  <span className="text-red-600">{BRL(expense)}</span>
+                </div>
+                <div className="flex justify-between font-semibold border-t pt-2">
+                  <span>Total Diário</span>
+                  <span className={dailyTotal >= 0 ? "text-green-600" : "text-red-600"}>
+                    {BRL(dailyTotal)}
+                  </span>
+                </div>
               </div>
             );
           })()}
