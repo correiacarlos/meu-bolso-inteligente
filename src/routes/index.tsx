@@ -73,7 +73,7 @@ function Index() {
     return { receita, gastos, reserva10 };
   }, [days, month, config.columns]);
 
-  const saldoFinal = totals.receita - totals.gastos - config.reservaPlanejada;
+  const saldoFinal = totals.receita - totals.gastos - totals.reserva10;
 
   // Quick entry state
   const [qeAmount, setQeAmount] = useState("");
@@ -208,11 +208,7 @@ function Index() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           <SummaryCard label="Entradas do mês" value={totals.receita} color="green" />
           <SummaryCard label="Gastos do mês" value={totals.gastos} color="red" />
-          <ReservaCard
-            value={config.reservaPlanejada}
-            onChange={b.setReservaPlanejada}
-            sugestao={totals.reserva10}
-          />
+          <SummaryCard label="Reserva Planejada (10%)" value={totals.reserva10} color="neutral" />
           <SummaryCard
             label="Saldo Final"
             value={saldoFinal}
