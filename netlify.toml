@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+# Nitro's "netlify" preset emits a server function under .netlify/functions
+# and the static client assets to dist/client. Netlify auto-detects the
+# functions directory; no further config needed.
