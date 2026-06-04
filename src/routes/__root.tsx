@@ -77,15 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Orçamento Diário" },
+      { name: "description", content: "Meu Bolso Inteligente tracks daily budgets, income, and expenses with customizable categories and payment methods." },
       { name: "author", content: "Lovable" },
       { name: "theme-color", content: "#16a34a" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Orçamento Diário" },
+      { property: "og:description", content: "Meu Bolso Inteligente tracks daily budgets, income, and expenses with customizable categories and payment methods." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Orçamento Diário" },
+      { name: "twitter:description", content: "Meu Bolso Inteligente tracks daily budgets, income, and expenses with customizable categories and payment methods." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/edaaca06-1754-4c8d-9353-961f29ac5ca8/id-preview-3f4479aa--3c85bc85-20cd-40c8-912a-dac9ace93e3c.lovable.app-1780603700591.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/edaaca06-1754-4c8d-9353-961f29ac5ca8/id-preview-3f4479aa--3c85bc85-20cd-40c8-912a-dac9ace93e3c.lovable.app-1780603700591.png" },
     ],
     links: [
       {
@@ -103,11 +107,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
-      <body className="bg-background text-foreground">
+      <body>
         {children}
         <Scripts />
       </body>
